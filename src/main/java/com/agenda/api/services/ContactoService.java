@@ -21,8 +21,11 @@ public class ContactoService {
 
     public Contacto atualizar(Contacto contacto, Integer idContacto) {
         Contacto contactoSalvo = this.findById(idContacto);
-        contacto.setId(contactoSalvo.getId());
-        return this.salvar(contacto);
+        if (contactoSalvo != null) {
+            contacto.setId(idContacto);
+        }
+        contacto = this.salvar(contacto);
+        return contacto;
     }
 
     public Contacto findById(Integer idContacto) {
