@@ -12,7 +12,7 @@ import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestControllerAdvice;
 import org.springframework.web.server.ResponseStatusException;
 
-import com.agenda.api.exceptions.AgendaException;
+import com.agenda.api.exceptions.ContactoException;
 import com.agenda.api.utils.ApiErrors;
 
 @RestControllerAdvice
@@ -21,9 +21,9 @@ public class ApplicationControllerAdvice {
 	private String mensagemErro;
 
 	@ResponseBody
-	@ExceptionHandler(AgendaException.class)
+	@ExceptionHandler(ContactoException.class)
 	@ResponseStatus(HttpStatus.NOT_FOUND)
-	public ApiErrors clienteNotFoundExceptionHandle(AgendaException ex) {
+	public ApiErrors clienteNotFoundExceptionHandle(ContactoException ex) {
 		this.mensagemErro = ex.getMessage();
 		return new ApiErrors(mensagemErro);
 	}

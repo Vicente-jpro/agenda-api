@@ -1,10 +1,10 @@
 package com.agenda.api.exceptions;
 
-public class AgendaException extends RuntimeException {
+public class ContactoException extends RuntimeException {
 
 	private static final long serialVersionUID = 1L;
 
-	public AgendaException(String errorMessage) {
+	public ContactoException(String errorMessage) {
 		super(errorMessage);
 	}
 }

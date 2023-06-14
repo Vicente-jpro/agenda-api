@@ -29,15 +29,20 @@ public class ContactoController {
     }
 
     @PatchMapping("/{id}")
-    public Contacto salvar(
+    public Contacto atualizar(
             @RequestBody Contacto Contacto,
             @PathParam("id") Integer idContacto) {
         return this.contactoService.salvar(Contacto);
     }
 
     @DeleteMapping("/{id}")
-    public Contacto salvar(@PathParam("id") Integer idContacto) {
-        return this.contactoService.
+    public void eliminar(@PathParam("id") Integer idContacto) {
+        this.contactoService.eliminar(idContacto);
+    }
+
+    @GetMapping("/{id}")
+    public Contacto getCliente(@PathParam("id") Integer idContacto) {
+        return this.contactoService.findById(idContacto);
     }
 
     @GetMapping
