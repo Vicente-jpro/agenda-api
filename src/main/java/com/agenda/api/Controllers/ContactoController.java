@@ -8,6 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PatchMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -31,17 +32,17 @@ public class ContactoController {
     @PatchMapping("/{id}")
     public Contacto atualizar(
             @RequestBody Contacto Contacto,
-            @PathParam("id") Integer idContacto) {
-        return this.contactoService.salvar(Contacto);
+            @PathVariable("id") Integer idContacto) {
+        return this.contactoService.atualizar(Contacto, idContacto);
     }
 
     @DeleteMapping("/{id}")
-    public void eliminar(@PathParam("id") Integer idContacto) {
+    public void eliminar(@PathVariable("id") Integer idContacto) {
         this.contactoService.eliminar(idContacto);
     }
 
     @GetMapping("/{id}")
-    public Contacto getCliente(@PathParam("id") Integer idContacto) {
+    public Contacto getCliente(@PathVariable("id") Integer idContacto) {
         return this.contactoService.findById(idContacto);
     }
 
