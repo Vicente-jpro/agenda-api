@@ -34,7 +34,7 @@ public class ContactoController {
     public Contacto atualizar(
             @RequestBody @Valid Contacto Contacto,
             @PathVariable("id") Integer idContacto) {
-        return this.contactoService.atualizar(Contacto, idContacto);
+        return this.contactoService.atualizar(Contacto, idContacto);//
     }
 
     @DeleteMapping("/{id}")
