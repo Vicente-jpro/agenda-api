@@ -2,6 +2,7 @@ package com.agenda.api.Controllers;
 
 import java.util.List;
 
+import javax.validation.Valid;
 import javax.websocket.server.PathParam;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -25,13 +26,13 @@ public class ContactoController {
     private ContactoService contactoService;
 
     @PostMapping
-    public Contacto salvar(@RequestBody Contacto Contacto) {
+    public Contacto salvar(@RequestBody @Valid Contacto Contacto) {
         return this.contactoService.salvar(Contacto);
     }
 
     @PatchMapping("/{id}")
     public Contacto atualizar(
-            @RequestBody Contacto Contacto,
+            @RequestBody @Valid Contacto Contacto,
             @PathVariable("id") Integer idContacto) {
         return this.contactoService.atualizar(Contacto, idContacto);
     }
