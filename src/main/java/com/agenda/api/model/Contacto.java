@@ -28,6 +28,5 @@ public class Contacto {
     private String email;
 
     @Column(name = "favorito")
-    @NotEmpty(message = "Campo favorito não pode estar vazio.")
     private boolean favorito;
 }
