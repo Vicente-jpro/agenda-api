@@ -29,4 +29,7 @@ public class Contacto {
 
     @Column(name = "favorito")
     private boolean favorito;
+
+    @Column(name = "foto")
+    private byte[] foto;
 }

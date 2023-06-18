@@ -2,6 +2,7 @@ package com.agenda.api.Controllers;
 
 import java.util.List;
 
+import javax.servlet.http.Part;
 import javax.validation.Valid;
 import javax.websocket.server.PathParam;
 
@@ -11,6 +12,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PatchMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -50,5 +52,10 @@ public class ContactoController {
     @GetMapping
     public List<Contacto> listar() {
         return this.contactoService.listar();
+    }
+
+    @PutMapping("/{id}/foto")
+    public byte[] salvarFoto(@PathVariable("id") Integer idContaco, Part arquivo) {
+        return this.contactoService.salvarFoto(idContaco, arquivo);
     }
 }
