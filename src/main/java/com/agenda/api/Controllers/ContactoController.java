@@ -15,6 +15,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.agenda.api.model.Contacto;
@@ -55,7 +56,9 @@ public class ContactoController {
     }
 
     @PutMapping("/{id}/foto")
-    public byte[] salvarFoto(@PathVariable("id") Integer idContaco, Part arquivo) {
+    public byte[] salvarFoto(
+            @PathVariable("id") Integer idContaco,
+            @RequestParam("foto") Part arquivo) {
         return this.contactoService.salvarFoto(idContaco, arquivo);
     }
 }
